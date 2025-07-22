@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Azure Web App</title>
-<link rel="stylesheet" type="text/css" href="/static/style.css">
+    <title>Azure Flask App</title>
 </head>
 <body>
-<h1>Hello from Azure!</h1>
+    <h1>Hello from Azure!</h1>
+    <form method="POST">
+        <label>Enter a message</label><br>
+        <input type="text" name="message" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if message %}
+        <p><strong>Message stored:</strong> {{ message }}</p>
+    {% endif %}
+
+    <h2>All Messages:</h2>
+    <ul>
+        {% for msg in all_messages %}
+            <li>{{ msg }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
